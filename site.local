@@ -1,0 +1,27 @@
+
+if (APPLE)
+	set (THIRD_PARTY_DIR /glade/p/VAST/VAPOR/third-party/apps-2017/Darwin_x86_64)
+elseif (UNIX AND NOT APPLE)
+	set (THIRD_PARTY_DIR /glade/p/VAST/VAPOR/third-party/apps-2014/Linux_x86_64)
+else ()
+	set (THIRD_PARTY_DIR "C:/Vapor3rdParty2015")
+endif ()
+
+if (UNIX)
+	set (QTDIR ${THIRD_PARTY_DIR})
+	set (PYTHONDIR ${THIRD_PARTY_DIR})
+	set (THIRD_PARTY_LIB_DIR "${THIRD_PARTY_DIR}/lib")
+elseif (WIN32)
+	set (QTDIR "C:/Qt-2015/4.8.7v2")
+	set (PYTHONDIR C:/Python27)
+	set (THIRD_PARTY_LIB_DIR "${THIRD_PARTY_DIR}/releaseLib64")
+endif ()
+
+set (PYTHONVERSION 2.7)
+set (THIRD_PARTY_INC_DIR "${THIRD_PARTY_DIR}/include")
+
+# Yellowstone build
+# (This evaluates true for cygwin too)
+if (UNIX AND NOT APPLE)
+	set (CMAKE_CXX_COMPILER /glade/apps/opt/modulefiles/ge/cmpwrappers/g++)
+endif ()
