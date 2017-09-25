@@ -9,19 +9,26 @@ endif ()
 
 if (UNIX)
 	set (QTDIR ${THIRD_PARTY_DIR})
+	set (PYTHONVERSION 2.7)
 	set (PYTHONDIR ${THIRD_PARTY_DIR})
 	set (THIRD_PARTY_LIB_DIR "${THIRD_PARTY_DIR}/lib")
 elseif (WIN32)
 	set (QTDIR "C:/Qt-2015/4.8.7v2")
-	set (PYTHONDIR C:/Python27)
+	set (PYTHONVERSION 27)
+	set (PYTHONDIR ${THIRD_PARTY_DIR}/python${PYTHONVERSION})
 	set (THIRD_PARTY_LIB_DIR "${THIRD_PARTY_DIR}/releaseLib64")
 endif ()
 
-set (PYTHONVERSION 2.7)
 set (THIRD_PARTY_INC_DIR "${THIRD_PARTY_DIR}/include")
 
-# Yellowstone build
-# (This evaluates true for cygwin too)
-if (UNIX AND NOT APPLE)
-	set (CMAKE_CXX_COMPILER /glade/apps/opt/modulefiles/ge/cmpwrappers/g++)
+if (WIN32)
+	set (THIRD_PARTY_LIB_DIR "${THIRD_PARTY_DIR}/releaseLib64")
+	set (NUMPY_INCLUDE_DIR "${PYTHONDIR}/Lib/site-packages/numpy/core/include")
+else ()
+	set (NUMPY_INCLUDE_DIR "${PYTHONDIR}/site-packages/numpy/core/include")
 endif ()
+
+# uncomment for Yellowstone build
+# if (UNIX AND NOT APPLE)
+#	set (CMAKE_CXX_COMPILER /glade/apps/opt/modulefiles/ge/cmpwrappers/g++)
+# endif ()
