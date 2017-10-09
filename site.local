@@ -2,7 +2,7 @@
 if (APPLE)
 	set (THIRD_PARTY_DIR /glade/p/VAST/VAPOR/third-party/apps-2017/Darwin_x86_64)
 elseif (UNIX AND NOT APPLE)
-	set (THIRD_PARTY_DIR /glade/p/VAST/VAPOR/third-party/apps-2014/Linux_x86_64)
+	set (THIRD_PARTY_DIR /glade/p/VAST/VAPOR/third-party/apps-2017/Linux_x86_64)
 else ()
 	set (THIRD_PARTY_DIR "C:/Vapor3rdParty2015")
 endif ()
