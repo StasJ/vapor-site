@@ -30,6 +30,11 @@ else ()
 	set (NUMPY_INCLUDE_DIR "${PYTHONPATH}/site-packages/numpy/core/include")
 endif ()
 
+cmake_host_system_information(RESULT TEST QUERY HOSTNAME)
+cmake_host_system_information(RESULT TEST2 QUERY FQDN)
+message ("-------------${TEST}")
+message ("-------------${TEST2}")
+
 # uncomment for Yellowstone build
 # if (UNIX AND NOT APPLE)
 #	set (CMAKE_CXX_COMPILER /glade/apps/opt/modulefiles/ge/cmpwrappers/g++)
